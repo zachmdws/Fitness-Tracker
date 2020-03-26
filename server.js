@@ -17,7 +17,13 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/", { useNewUrlParser: true });
 
-
+db.Workout.create({ name: "New Workout"})
+  .then(dbWorkout => { 
+    console.log(dbWorkout);
+  })
+  .catch(({ message }) => { 
+    console.log(message);
+  });
 
 
 
